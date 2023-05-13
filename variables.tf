@@ -105,3 +105,10 @@ variable "cluster_domain_suffix" {
   description = "Queries for domains with the suffix will be answered by kube-dns"
   default     = "cluster.local"
 }
+
+variable "enable_kube_proxy" {
+  type        = bool
+  description = "Enable kube-proxy"
+  default     = true
+}
+

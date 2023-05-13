@@ -1,3 +1,4 @@
+%{ if enable_kube_proxy ~}
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -97,3 +98,4 @@ spec:
         hostPath:
           type: FileOrCreate
           path: /run/xtables.lock
+%{ endif ~}

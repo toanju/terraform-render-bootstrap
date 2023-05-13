@@ -1,5 +1,7 @@
+%{ if enable_kube_proxy ~}
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   namespace: kube-system
   name: kube-proxy
+%{ endif ~}

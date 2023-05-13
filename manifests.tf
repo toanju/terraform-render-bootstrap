@@ -35,6 +35,7 @@ locals {
         daemonset_tolerations  = var.daemonset_tolerations
         token_id               = random_password.bootstrap-token-id.result
         token_secret           = random_password.bootstrap-token-secret.result
+        enable_kube_proxy      = var.enable_kube_proxy
       }
     )
   }
