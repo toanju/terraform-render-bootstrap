@@ -42,7 +42,13 @@ variable "network_ip_autodetection_method" {
 variable "pod_cidr" {
   type        = string
   description = "CIDR IP range to assign Kubernetes pods"
-  default     = "10.2.0.0/16"
+  default     = "10.0.0.0/8"
+}
+
+variable "pod_cidr_v6" {
+  type        = string
+  description = "CIDR IP range to assign Kubernetes pods"
+  default     = "fd00:/104"
 }
 
 variable "service_cidr" {
@@ -51,9 +57,17 @@ variable "service_cidr" {
 CIDR IP range to assign Kubernetes services.
 The 1st IP will be reserved for kube_apiserver, the 10th IP will be reserved for kube-dns.
 EOD
-  default     = "10.3.0.0/24"
+  default     = "172.16.0.0/24"
 }
 
+variable "service_cidr_v6" {
+  type        = string
+  description = <<EOD
+CIDR IPv6 range to assign Kubernetes services.
+The 1st IP will be reserved for kube_apiserver, the 10th IP will be reserved for kube-dns.
+EOD
+  default     = "fd00:0001:/120"
+}
 
 variable "container_images" {
   type        = map(string)
