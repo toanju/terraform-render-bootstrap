@@ -10,9 +10,13 @@ metadata:
     k8s-app: coredns
     kubernetes.io/name: "CoreDNS"
 spec:
+  ipFamilyPolicy: PreferDualStack
   selector:
     k8s-app: coredns
   clusterIP: ${cluster_dns_service_ip}
+  clusterIPs:
+  - ${cluster_dns_service_ip}
+  - ${cluster_dns_service_ip_v6}
   ports:
     - name: dns
       port: 53

@@ -3,6 +3,10 @@ output "cluster_dns_service_ip" {
   value = cidrhost(var.service_cidr, 10)
 }
 
+output "cluster_dns_service_ip_v6" {
+  value = cidrhost(var.service_cidr_v6, 10)
+}
+
 // Generated kubeconfig for Kubelets (i.e. lower privilege than admin)
 output "kubeconfig-kubelet" {
   value     = local.kubeconfig-bootstrap
